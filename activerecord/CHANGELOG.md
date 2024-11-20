@@ -1,3 +1,7 @@
+*   Fix `becomes` to preserve `previously_new_record?`.
+
+    *a5-stable*
+
 *   Fix `becomes` to preserve `marked_for_destruction?`.
 
     *Vincent Robert*

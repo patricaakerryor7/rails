@@ -477,6 +477,17 @@ class PersistenceTest < ActiveRecord::TestCase
     assert_equal %w{name}, client.changed
   end
 
+  def test_becomes_preserve_record_status
+    company = Company.new(name: "37signals")
+    client = company.becomes(Client)
+    assert_predicate client, :new_record?
+
+    company.save
+    client = company.becomes(Client)
+    assert_predicate client, :persisted?
+    assert_predicate client, :previously_new_record?
+  end
+
   def test_becomes_preserve_mark_for_destruction
     topic = topics(:first)
     topic.mark_for_destruction
