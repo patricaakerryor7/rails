@@ -1,3 +1,8 @@
+*   Fix incorrect callback execution order when `config.active_record.run_after_transaction_callbacks_in_order_defined = true`
+    and using `after_commit` and `after_rollback` callbacks with `prepend: true`.
+
+    *Joshua Young*
+
 *   Accept encryption credentials as ENV
 
     Taking advantage of Rails.apps.creds (#56455), the `primary_key`, `deterministic_key` and
