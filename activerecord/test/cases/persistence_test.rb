@@ -477,6 +477,15 @@ class PersistenceTest < ActiveRecord::TestCase
     assert_equal %w{name}, client.changed
   end
 
+  def test_becomes_preserve_mark_for_destruction
+    topic = topics(:first)
+    topic.mark_for_destruction
+    assert_predicate topic, :marked_for_destruction?
+
+    reply = topic.becomes(Reply)
+    assert_predicate reply, :marked_for_destruction?
+  end
+
   def test_becomes_initializes_missing_attributes
     company = Company.new(name: "GrowingCompany")
 

@@ -493,6 +493,7 @@ module ActiveRecord
         becoming.instance_variable_set(:@mutations_from_database, @mutations_from_database ||= nil)
         becoming.instance_variable_set(:@new_record, new_record?)
         becoming.instance_variable_set(:@destroyed, destroyed?)
+        becoming.instance_variable_set(:@marked_for_destruction, marked_for_destruction?)
         becoming.errors.copy!(errors)
       end
 
