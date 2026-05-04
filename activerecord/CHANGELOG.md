@@ -1,3 +1,8 @@
+*   Fix incorrect callback execution order when `config.active_record.run_after_transaction_callbacks_in_order_defined = true`
+    and using `after_commit` and `after_rollback` callbacks with `prepend: true`.
+
+    *Joshua Young*
+
 *   Bump the minimum PostgreSQL version to 10.0.
 
     As part of this change, `supports_pgcrypto_uuid?` is deprecated because
